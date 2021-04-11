@@ -5,15 +5,7 @@ import './styles.css'
 export default function SubmittedArticles() {
     return (
         <div>
-            <header>
-                <h1>FatMag|</h1>Greetings Username
-                <button>Write</button>
-                <button>Your Articles</button>
-                <button>LogOut</button>
-
-            </header>
-
-
+          
             <hr />
                 YOUR SUBMITTED ARTICLES
             <hr />

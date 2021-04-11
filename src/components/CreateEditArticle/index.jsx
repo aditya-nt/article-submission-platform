@@ -3,14 +3,7 @@ import React from 'react'
 export default function CreateEditArticle() {
     return (
         <div>
-            <header>
-                <h1>FatMag|</h1>Greetings Username
-                <button>Publish</button>
-                <button>Your Articles</button>
-                <button>LogOut</button>
-
-            </header>
-
+         
 
             <h4>TITLE</h4>
             <input placeholder="Title"></input>

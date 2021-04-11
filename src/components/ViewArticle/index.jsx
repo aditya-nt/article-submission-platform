@@ -3,13 +3,7 @@ import React from 'react'
 export default function ViewArticle() {
     return (
         <div>
-            <header>
-                <h1>FatMag|</h1>Greetings Username
-                <button>Write</button>
-                <button>Your Articles</button>
-                <button>LogOut</button>
-            </header>
-
+           
             <img src='../../' width="380px" height="180px"></img>
 
             <br/>
