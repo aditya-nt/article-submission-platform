@@ -32,7 +32,7 @@ export default function Navigation(props) {
 
     return (
         <Navbar bg="light" expand="lg" fixed="top">
-            <Link to="/"><Navbar.Brand href="#home"><b> FATMUG | </b>Greetings, {currentUser.displayName}</Navbar.Brand></Link>
+            <Link to="/"><Navbar.Brand><b> FATMUG | </b>Greetings, {currentUser.displayName}</Navbar.Brand></Link>
 
 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

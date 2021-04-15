@@ -15,8 +15,10 @@ export default function CreateEditArticle() {
         marginTop: "70px"
     };
 
-    const { currentUser, logout } = useAuth()
+    const { currentUser,  } = useAuth()
 
+
+   
     // const [schools, setSchools] = useState([]);
     // const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState("");
@@ -46,7 +48,7 @@ export default function CreateEditArticle() {
     return (
         <Container className="d-flex align-items-center justify-content-center" style={containerStyle} >
 
-            <Navigation  buttonName="Publish" handleClick = {() => addSchool({ email : currentUser.email ,title, desc, id: uuidv4(), imageUrl : url })}/>
+            <Navigation  buttonName="Publish" handleClick = {() => addSchool({ email : currentUser.email ,title, desc, id: uuidv4(), imageUrl : url ,displayName :  currentUser.displayName })}/>
 
 
             <Row>

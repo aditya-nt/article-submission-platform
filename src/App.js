@@ -1,17 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 import CreateEditArticle from './components/CreateEditArticle';
-import ViewArticle from './components/ViewArticle';
 import SubmittedArticles from './components/SubmittedArticles';
 import React, { useState } from "react";
 
-import { Container } from "react-bootstrap"
 import { AuthProvider } from "./contexts/AuthContext"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Signup from "./components/Login/Signup"
 import Dashboard from "./components/Dashboard"
-import Navigation from './components/Navigation'
 // import Dashboard from "./components/Login/Dashboard"
 import Login from "./components/Login/Login"
 import PrivateRoute from "./components/Login/PrivateRoute"

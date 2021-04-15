@@ -55,7 +55,9 @@ export default function Dashboard(props) {
                     <ul>
 
                         <li>
-                            <img src="" alt="" width="480px" height="280px" />
+                            <div >
+                            <img  src="" alt="" width="480px" height="280px" />
+                            </div>
                             <br />
                     icon <b>Eric Sangerma</b> in <b>Whileite</b>
                             <br />
@@ -116,10 +118,10 @@ export default function Dashboard(props) {
 
 
 
-                    <div class="pagination">
+                    <div className="pagination">
                         <a href="#">&laquo;</a>
                         <a href="#">1</a>
-                        <a class="active" href="#">2</a>
+                        <a className ="active" href="#">2</a>
                         <a href="#">3</a>
                         <a href="#">4</a>
                         <a href="#">5</a>
