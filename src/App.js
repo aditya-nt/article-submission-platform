@@ -1,43 +1,50 @@
 import logo from './logo.svg';
 import './App.css';
-import LoginForm from './components/LoginForm'
 import CreateEditArticle from './components/CreateEditArticle';
 import ViewArticle from './components/ViewArticle';
 import SubmittedArticles from './components/SubmittedArticles';
-import Dashboard from './components/Dashboard';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React, { useState } from "react";
 
-function App() {
+import { Container } from "react-bootstrap"
+import { AuthProvider } from "./contexts/AuthContext"
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Signup from "./components/Login/Signup"
+import Dashboard from "./components/Dashboard"
+import Navigation from './components/Navigation'
+// import Dashboard from "./components/Login/Dashboard"
+import Login from "./components/Login/Login"
+import PrivateRoute from "./components/Login/PrivateRoute"
+import ForgotPassword from "./components/Login/ForgotPassword"
+import UpdateProfile from "./components/Login/UpdateProfile"
+
+function App(props) {
+
+
   return (
 
-    <Router>
-      <div className="App">
-        {/* <LoginForm/> */}
-        {/* <ViewArticle/> */}
+    <React.Fragment>
+  
+    
+        <Router>
+          <AuthProvider>
+            <Switch>
+              <PrivateRoute exact path="/" component={Dashboard} />
+              <PrivateRoute path="/update-profile" component={UpdateProfile} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/login" component={Login} />
+              <Route path="/forgot-password" component={ForgotPassword} />
+              <Route path="/write" component={CreateEditArticle} />
+              <Route path="/your-articles" component={SubmittedArticles} />
+      
 
-        <header>
-          <Link to="/"><h1>FatMag|</h1>Greetings Username</Link>
-          <Link to="/write">write</Link>
-          <Link to="/your-articles">Your Articles</Link>
-          <button>LogOut</button>
-        </header>
 
-
-
-
-        <Switch>
-          <Route path="/write" exact component={CreateEditArticle} />
-          <Route path="/your-articles" exact component={SubmittedArticles} />
-          <Route path="/" exact component={Dashboard} />
-        </Switch>
-      </div>
-    </Router>
-  );
+            </Switch>
+          </AuthProvider>
+        </Router>
+        </React.Fragment>
+    
+  )
 }
 
-export default App;
+export default App
