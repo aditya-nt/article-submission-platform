@@ -53,7 +53,6 @@ export default function Dashboard(props) {
             //.where('title', '==', 'School1') // does not need index
             //.where('score', '<=', 10)    // needs index
             .orderBy('date', 'desc')
-            .limit(5)
 
             .onSnapshot((querySnapshot) => {
                 const items = [];
