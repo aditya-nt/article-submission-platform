@@ -31,8 +31,6 @@ export default function EditArticle(props) {
     const ref = firebase.firestore().collection('articles');
 
 
-    console.log("dddd"+ url);
-    console.log("oooo"+ oldUrl);
     useEffect(() => {
         // Run! Like go get some data from an API.
     

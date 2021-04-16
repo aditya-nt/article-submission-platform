@@ -12,6 +12,7 @@ import { useAuth } from "../../contexts/AuthContext"
 
 
 import TopArticles from '../TopArticles'
+import SubmittedArticles from '../SubmittedArticles';
 
 
 export default function Dashboard(props) {
@@ -53,7 +54,7 @@ export default function Dashboard(props) {
             <Row>
                 <Col xl={8} lg={8} md={8} sm={8} xs={12}>
 
-                    <ul>
+                    {/* <ul>
 
                         <li>
                             <div >
@@ -131,10 +132,11 @@ export default function Dashboard(props) {
                     </div>
 
                     <br />
-                    <br />
+                    <br /> */}
 
 
 
+                    <SubmittedArticles />
 
 
 

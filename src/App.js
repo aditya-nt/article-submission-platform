@@ -14,6 +14,7 @@ import PrivateRoute from "./components/Login/PrivateRoute"
 import ForgotPassword from "./components/Login/ForgotPassword"
 import UpdateProfile from "./components/Login/UpdateProfile"
 import EditArticle from './components/EditArticle';
+import ViewArticle from './components/ViewArticle';
 
 function App(props) {
 
@@ -33,6 +34,7 @@ function App(props) {
               <Route path="/forgot-password" component={ForgotPassword} />
               <Route path="/write" component={CreateArticle} />
               <Route path="/edit/:id" component={EditArticle} />
+              <Route path="/view/:id" component={ViewArticle} />
               <Route path="/your-articles" component={SubmittedArticles} />
       
 

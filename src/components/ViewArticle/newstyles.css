@@ -1,0 +1,8 @@
+.space {
+  display: block;
+  height: 100px;
+  max-width: 110vh;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  margin-bottom: 100px;
+}
