@@ -8,7 +8,7 @@ export default function UploadImage({file: file , setFile  :  setFile , urlSette
     const [error, setError] = useState(null);
     const { progress, url } = useStorage(file);
 
-    urlSetter(url)
+                urlSetter(url)
 
 
     const types = ["image/png", "image/jpeg", "image/jpg"];
@@ -20,6 +20,7 @@ export default function UploadImage({file: file , setFile  :  setFile , urlSette
             if (types.includes(selectedFile.type)) {
                 setError(null);
                 setFile(selectedFile);
+
             } else {
                 setFile(null);
                 setError("Please select an image file (png or jpg)");

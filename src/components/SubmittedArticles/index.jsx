@@ -60,6 +60,47 @@ export default function SubmittedArticles() {
             });
     }
 
+
+
+    //DELETE FUNCTION
+    function deleteSchool(school) {
+        ref
+        .doc(school.id)
+        .delete()
+        .catch((err) => {
+            console.error(err);
+        });
+    }
+
+    // // EDIT FUNCTION
+    // function editSchool(school) {
+    //     const updatedSchool = {
+    //     score: +score,
+    //     lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
+    //     };
+    //     setLoading();
+    //     ref
+    //     .doc(school.id)
+    //     .update(updatedSchool)
+    //     .catch((err) => {
+    //         console.error(err);
+    //     });
+    // }
+    
+    function editSchool(school) {
+        
+        history.push("/edit/"+school.id)
+
+        // ref
+        // .doc(school.id)
+        // .update(updatedSchool)
+        // .catch((err) => {
+        //     console.error(err);
+        // });
+    }
+
+
+
     useEffect(() => {
         getSchools();
     }, []);
@@ -102,8 +143,8 @@ export default function SubmittedArticles() {
                                             <Col className="mr-auto"></Col>
                                             <Col className="mr-auto"></Col> */}
                                             <Col>
-                                            <Button className="m-1" variant="outline-secondary">Edit</Button>
-                                            <Button className="m-1" variant="outline-secondary">Delete</Button>
+                                            <Button className="m-1" variant="outline-secondary" onClick={() => editSchool(school)}>Edit</Button>
+                                            <Button className="m-1" variant="outline-secondary"  onClick={() => deleteSchool(school)}>Delete</Button>
                                             </Col>
 
                                         </Row>

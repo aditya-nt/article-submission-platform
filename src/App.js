@@ -1,5 +1,5 @@
 import './App.css';
-import CreateEditArticle from './components/CreateEditArticle';
+import CreateArticle from './components/CreateArticle';
 import SubmittedArticles from './components/SubmittedArticles';
 import React, { useState } from "react";
 
@@ -13,6 +13,7 @@ import Login from "./components/Login/Login"
 import PrivateRoute from "./components/Login/PrivateRoute"
 import ForgotPassword from "./components/Login/ForgotPassword"
 import UpdateProfile from "./components/Login/UpdateProfile"
+import EditArticle from './components/EditArticle';
 
 function App(props) {
 
@@ -30,7 +31,8 @@ function App(props) {
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
-              <Route path="/write" component={CreateEditArticle} />
+              <Route path="/write" component={CreateArticle} />
+              <Route path="/edit/:id" component={EditArticle} />
               <Route path="/your-articles" component={SubmittedArticles} />
       
 

@@ -17,7 +17,8 @@ import TopArticles from '../TopArticles'
 export default function Dashboard(props) {
 
     const containerStyle = {
-        marginTop: "70px"
+        marginTop: "100px"
+
     };
 
 
