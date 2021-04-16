@@ -1,18 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link, useHistory
+  useHistory
 } from "react-router-dom";
 import Navigation from '../Navigation';
-import { Container, Row, Col } from "react-bootstrap";
+import firebase from "../../firebase"
+
+import { Container, Row, Col, ListGroup } from "react-bootstrap";
 
 import { useAuth } from "../../contexts/AuthContext"
+import './dashstyles.css'
 
 
 import TopArticles from '../TopArticles'
-import SubmittedArticles from '../SubmittedArticles';
 
 
 export default function Dashboard(props) {
@@ -23,15 +22,47 @@ export default function Dashboard(props) {
     };
 
 
-    const [error, setError] = useState("")
+
+    const [schools, setSchools] = useState([]);
+    const [, setLoading] = useState(false);
+
+
+    const [, setError] = useState("")
     const { currentUser, logout } = useAuth()
     const history = useHistory()
+    const ref = firebase.firestore().collection('articles');
+
+
+    //REALTIME GET FUNCTION
+    function getArticles() {
+        setLoading(true);
+        ref
+            //.where('owner', '==', currentUserId)
+            //.where('title', '==', 'School1') // does not need index
+            //.where('score', '<=', 10)    // needs index
+            //.orderBy('owner', 'asc')
+            .limit(3)
+
+            .onSnapshot((querySnapshot) => {
+                const items = [];
+                querySnapshot.forEach((doc) => {
+                    items.push(doc.data());
+                });
+                setSchools(items);
+                setLoading(false);
+            });
+    }
+
+
+    useEffect(() => {
+        getArticles();
+    }, []);
 
 
     function handleHistory() {
-      history.push("/write");
+        history.push("/write");
     }
-  
+
 
 
     async function handleLogout() {
@@ -45,15 +76,55 @@ export default function Dashboard(props) {
         }
     }
 
+    function viewArticle(school) {
+        history.push("/view/" + school.id)
+    }
+
 
     return (
         <Container className="d-flex align-items-center justify-content-center" style={containerStyle} >
 
-            <Navigation buttonName="Write" handleClick = {handleHistory}/>
+            <Navigation buttonName="Write" handleClick={handleHistory} />
 
             <Row>
                 <Col xl={8} lg={8} md={8} sm={8} xs={12}>
 
+
+                    <ListGroup variant="flush" xl={12} lg={12} md={12} sm={12} xs={12}>
+
+                        <div>
+                            {schools.map((school) => (
+                                <div className="school" key={school.id}>
+                                    <ListGroup.Item >
+
+                                        <Row>
+                                            <Col>
+                                                <img onClick={() => viewArticle(school)} src={school.imageUrl} className="img-fluid" alt="things" />
+
+                                            </Col>
+
+                                            <br />
+                                            <Col xl={12} lg={12} md={12} sm={12} xs={12} onClick={() => viewArticle(school)}>
+                                                <hr />
+                                                <h5><b>{school.title} </b></h5>
+                                                <span className="text">{school.desc} </span>... <i>Read More</i><br />
+                                                <i>By <b>{school.displayName}</b></i> <br />
+                                            </Col>
+
+
+                                        </Row>
+                                    </ListGroup.Item>
+
+                                </div>
+
+
+                            ))}
+
+                            <span>
+                                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                            </span>
+                        </div>
+                    </ListGroup>
                     {/* <ul>
 
                         <li>
@@ -136,7 +207,7 @@ export default function Dashboard(props) {
 
 
 
-                    <SubmittedArticles />
+                    {/* <SubmittedArticles /> */}
 
 
 

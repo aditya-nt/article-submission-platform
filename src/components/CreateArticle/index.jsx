@@ -8,10 +8,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext"
 
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link, useHistory
+ useHistory
 } from "react-router-dom";
 
 export default function CreateArticle() {

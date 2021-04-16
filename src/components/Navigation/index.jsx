@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
-import { Navbar, Dropdown, Nav, Button } from "react-bootstrap";
+import { Navbar,Nav, Button } from "react-bootstrap";
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link, useHistory
 } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext"
@@ -13,7 +10,7 @@ export default function Navigation(props) {
 
 
 
-    const [error, setError] = useState("")
+    const [, setError] = useState("")
     const { currentUser, logout } = useAuth()
     const history = useHistory()
 

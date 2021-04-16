@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import firebase from "../../firebase";
-import { v4 as uuidv4 } from "uuid";
-import UploadImage from '../UploadImage';
 
 import Navigation from '../Navigation';
 import { Container, Row, Col } from "react-bootstrap";
-import { useAuth } from "../../contexts/AuthContext"
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link, useHistory
+     useHistory
 } from "react-router-dom";
 
 import './newstyles.css'

@@ -12,3 +12,13 @@
   }
   
   .pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+  .text {
+    display: block;
+    height: 100px;
+    width: 95vh;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+  }

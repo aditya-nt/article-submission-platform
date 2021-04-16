@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
-import { useAuth } from "../../contexts/AuthContext"
 import { Container } from "react-bootstrap"
 import firebase from "../../firebase"
 
@@ -11,7 +10,7 @@ export default function Signup() {
   const passwordRef = useRef()
   const nameRef = useRef()
   const passwordConfirmRef = useRef()
-  const { signup } = useAuth()
+  // const { signup } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()

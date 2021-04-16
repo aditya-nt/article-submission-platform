@@ -2,17 +2,14 @@ import React, { useState, useEffect } from 'react';
 import firebase from "../../firebase"
 import './styles.css'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link, useHistory
+     useHistory
 } from "react-router-dom";
 import Navigation from '../Navigation';
 import { useAuth } from "../../contexts/AuthContext"
 
 import { Container, Row, Col } from "react-bootstrap";
 
-import { Form, Button, Card, Alert, ListGroup, ListGroupItem } from "react-bootstrap"
+import { Button,ListGroup } from "react-bootstrap"
 
 
 
@@ -32,11 +29,8 @@ export default function SubmittedArticles() {
 
 
 
-    const [schools, setSchools] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [title, setTitle] = useState("");
-    const [desc, setDesc] = useState("");
-    const [email, setEmail] = useState("");
+    const [articles, setSchools] = useState([]);
+ 
     const history = useHistory()
     const { currentUser, } = useAuth()
 
@@ -46,7 +40,6 @@ export default function SubmittedArticles() {
 
     //REALTIME GET FUNCTION
     function getSchools() {
-        setLoading(true);
         ref
             //.where('owner', '==', currentUserId)
             //.where('title', '==', 'School1') // does not need index
@@ -61,7 +54,6 @@ export default function SubmittedArticles() {
                     items.push(doc.data());
                 });
                 setSchools(items);
-                setLoading(false);
             });
     }
 
@@ -111,7 +103,7 @@ export default function SubmittedArticles() {
                     <ListGroup variant="flush" xl={12} lg={12} md={12} sm={12} xs={12}>
 
                         <div>
-                            {schools.map((school) => (
+                            {articles.map((school) => (
                                 <div className="school" key={school.id}>
                                     <ListGroup.Item >
 
@@ -125,7 +117,8 @@ export default function SubmittedArticles() {
                                             <Col xl={8} lg={12} md={12} sm={12} xs={12} onClick={() => viewArticle(school)}>
                                                 <h5><b>{school.title} </b></h5>
                                                 <span className="text">{school.desc} </span>... <i>Read More</i><br />
-                                                <b><i>{school.displayName}</i></b> <br />
+                                                <i>By <b>{school.displayName}</b></i> <br />
+
                                             </Col>
                                         
                                             <Col >

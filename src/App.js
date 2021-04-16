@@ -1,14 +1,13 @@
 import './App.css';
 import CreateArticle from './components/CreateArticle';
 import SubmittedArticles from './components/SubmittedArticles';
-import React, { useState } from "react";
+import React from "react";
 
 import { AuthProvider } from "./contexts/AuthContext"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Signup from "./components/Login/Signup"
 import Dashboard from "./components/Dashboard"
-// import Dashboard from "./components/Login/Dashboard"
 import Login from "./components/Login/Login"
 import PrivateRoute from "./components/Login/PrivateRoute"
 import ForgotPassword from "./components/Login/ForgotPassword"
