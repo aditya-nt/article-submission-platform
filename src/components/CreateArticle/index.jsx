@@ -3,6 +3,8 @@ import firebase from "../../firebase";
 import { v4 as uuidv4 } from "uuid";
 import UploadImage from '../UploadImage';
 
+import date from 'date-and-time';
+
 import Navigation from '../Navigation';
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext"
@@ -24,6 +26,15 @@ export default function CreateArticle() {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [url, setUrl] = useState("no Url");
+
+    const now = new Date();
+    date.format(now, 'YYYY/MM/DD HH:mm:ss');    // => '2015/01/02 23:14:05'
+    date.format(now, 'ddd, MMM DD YYYY');       // => 'Fri, Jan 02 2015'
+    date.format(now, 'hh:mm A [GMT]Z');         // => '11:14 PM GMT-0800'
+    date.format(now, 'hh:mm A [GMT]Z', true);   // => '07:14 AM GMT+0000'
+
+    const pattern = date.compile('YYYYMMDDHHmmssS');
+    // date.format(now, pattern);
 
 
     const ref = firebase.firestore().collection("articles");
@@ -49,7 +60,7 @@ export default function CreateArticle() {
     return (
         <Container className="d-flex align-items-center justify-content-center" style={containerStyle} >
 
-            <Navigation buttonName="Publish" handleClick={() => addSchool({ email: currentUser.email, title, desc, id: uuidv4(), imageUrl: url, displayName: currentUser.displayName })} />
+            <Navigation buttonName="Publish" handleClick={() => addSchool({ email: currentUser.email, title, desc, id: uuidv4(), imageUrl: url, displayName: currentUser.displayName ,date : date.format(now, pattern) })} />
 
 
             <Row>
