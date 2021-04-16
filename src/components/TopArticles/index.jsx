@@ -14,7 +14,7 @@ export default function TopArticles() {
 
 
 
-    const [schools, setSchools] = useState([]);
+    const [articles, setArticles] = useState([]);
     const [, setLoading] = useState(false);
    
 
@@ -23,7 +23,7 @@ export default function TopArticles() {
 
 
     //REALTIME GET FUNCTION
-    function getSchools() {
+    function getArticles() {
         setLoading(true);
         ref
             //.where('owner', '==', currentUserId)
@@ -37,7 +37,7 @@ export default function TopArticles() {
                 querySnapshot.forEach((doc) => {
                     items.push(doc.data());
                 });
-                setSchools(items);
+                setArticles(items);
                 setLoading(false);
             });
     }
@@ -50,7 +50,7 @@ export default function TopArticles() {
 
 
     useEffect(() => {
-        getSchools();
+        getArticles();
     }, []);
 
 
@@ -64,7 +64,7 @@ export default function TopArticles() {
             <ListGroup variant="flush" xl={12} lg={12} md={12} sm={12} xs={12}>
 
                         <div>
-                            {schools.map((school) => (
+                            {articles.map((school) => (
                                 <div className="school" key={school.id}>
                                     <ListGroup.Item >
 

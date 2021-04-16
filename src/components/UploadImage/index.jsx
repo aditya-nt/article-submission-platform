@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-// import "./App.css";
+import { Button ,Input } from "react-bootstrap";
 
 import { useStorage } from "../../contexts/useStorage";
 
 export default function UploadImage({file: file , setFile  :  setFile , urlSetter : urlSetter}) {
-    // const [file, setFile] = ;
     const [error, setError] = useState(null);
     const { progress, url } = useStorage(file);
 

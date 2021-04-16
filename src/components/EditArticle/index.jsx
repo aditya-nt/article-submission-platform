@@ -3,7 +3,7 @@ import firebase from "../../firebase";
 import UploadImage from '../UploadImage';
 
 import Navigation from '../Navigation';
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col , Form} from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext"
 import {
     useHistory
@@ -80,22 +80,26 @@ export default function EditArticle(props) {
                 EDIT ARTICLE
             <hr />
 
-                <h4>TITLE</h4>
-                <input value={title} onChange={(e) => setTitle(e.target.value)}></input>
-                <h4>DESCRIPTION</h4>
-                <textarea id="editDesc" value={desc} rows="8" cols="100" onChange={(e) => setDesc(e.target.value)}>
-                </textarea>
+            <Form>
+                        <Form.Group controlId="exampleForm.ControlInput1">
+                            <Form.Label><h4>TITLE</h4></Form.Label>
+                            <Form.Control value={title}  type="text"  onChange={(e) => setTitle(e.target.value)} />
+                        </Form.Group>
+                        
 
-                <br />
-                {/* <button onClick={() => addSchool({ title : "title", desc : "desc", id: uuidv4() })}>Upload Image</button> */}
-                <br />
+                        <Form.Group controlId="exampleForm.ControlTextarea1">
+                            <Form.Label><h4>DESCRIPTION</h4></Form.Label>
+                            <Form.Control value={desc} as="textarea" rows={8} cols={100} onChange={(e) => setDesc(e.target.value)}/>
+                        </Form.Group>
+                    </Form>
 
-                {/* <img src='../../' width="380px" height="480px"></img> */}
                 {  !(file) && <img src={oldUrl}></img>}
                 <br/>
                 <br/>
  
                 <UploadImage urlSetter={setUrl} file ={file} setFile = { setFile} />
+                <br/>
+                <br/>
                 </Col>
                 </Row>
         </Container >

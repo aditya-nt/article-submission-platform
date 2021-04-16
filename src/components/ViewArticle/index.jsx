@@ -69,54 +69,10 @@ export default function ViewArticle(props) {
                         {desc}
                     </span>
                     <span className="space">
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <hr />
+                        <br /><br /><br /><br /><br /><br /><br /><br /><br /><hr />
                     </span>
-
-
-                    {/* <h4>TITLE</h4>
-            <input value={title} onChange={(e) => setTitle(e.target.value)}></input>
-            <h4>DESCRIPTION</h4>
-            <textarea id="editDesc" value={desc} rows="8" cols="100" onChange={(e) => setDesc(e.target.value)}>
-            </textarea>
-
-            <br />
-            {/* <button onClick={() => addSchool({ title : "title", desc : "desc", id: uuidv4() })}>Upload Image</button> */}
-                    <br />
-
-                    {/* <img src='../../' width="380px" height="480px"></img> */}
-
                 </Col>
             </Row>
         </Container >
-
-
-
-        // <div>
-
-        //         <img src='../../' width="380px" height="180px"></img>
-
-        //         <br/>
-        //         <h1>10 Questions something</h1>
-        //         <i>Jul 10,<b>6 min read</b></i>star
-        //         <hr/>
-
-        //         <p>
-
-        //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-        //         </p>
-
-        //         icon <i>by </i><b>Eric Sigma</b>
-
-        //     </div>
     )
 }
