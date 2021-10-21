@@ -1,7 +1,7 @@
 # An Article Submission Platform
 
-Live Demo: [article-submission-platform.web.app](https://github.com/facebook/create-react-app)
-
+Live Demo: [article-submission-platform.web.app](https://article-submission-platform.web.app)
+SignUp and view
 
 
 ## Features :
